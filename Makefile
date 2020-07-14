@@ -19,17 +19,17 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Drivers/HAL_Driver/Src/at32f4xx_flash.c \
-Drivers/HAL_Driver/Src/at32f4xx_rcc.c \
-Drivers/HAL_Driver/Src/at32f4xx_tim.c \
-Drivers/HAL_Driver/Src/at32f4xx_gpio.c \
-Drivers/HAL_Driver/Src/at32f4xx_adc.c \
-Drivers/HAL_Driver/Src/at32f4xx_pwr.c \
-Drivers/HAL_Driver/Src/at32f4xx_usart.c \
-Drivers/HAL_Driver/Src/at32f4xx_i2c.c \
-Drivers/HAL_Driver/Src/at32f4xx_dma.c \
-Drivers/HAL_Driver/Src/at32f4xx_exti.c \
-Drivers/HAL_Driver/Src/misc.c \
+Drivers/HAL_Driver/src/at32f4xx_flash.c \
+Drivers/HAL_Driver/src/at32f4xx_rcc.c \
+Drivers/HAL_Driver/src/at32f4xx_tim.c \
+Drivers/HAL_Driver/src/at32f4xx_gpio.c \
+Drivers/HAL_Driver/src/at32f4xx_adc.c \
+Drivers/HAL_Driver/src/at32f4xx_pwr.c \
+Drivers/HAL_Driver/src/at32f4xx_usart.c \
+Drivers/HAL_Driver/src/at32f4xx_i2c.c \
+Drivers/HAL_Driver/src/at32f4xx_dma.c \
+Drivers/HAL_Driver/src/at32f4xx_exti.c \
+Drivers/HAL_Driver/src/misc.c \
 Src/setup.c \
 Src/control.c \
 Src/main.c \
@@ -96,7 +96,7 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -IInc \
--IDrivers/HAL_Driver/Inc \
+-IDrivers/HAL_Driver/inc \
 -IDrivers/CMSIS/CM4/DeviceSupport \
 -IDrivers/CMSIS/CM4/CoreSupport \
 
