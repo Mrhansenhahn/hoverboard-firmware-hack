@@ -67,7 +67,8 @@ Nunchuck or PPM working bad: The i2c bus and PPM signal are very sensitive to em
 
 Most robust way for input is to use the ADC and potis. It works well even on 1m unshielded cable. Solder ~100k Ohm resistors between ADC-inputs and gnd directly on the mainboard. Use potis as pullups to 3.3V.
 
-ADC Joystick control uses two ADCs on pin PA_2 and PA_3. ADC1 is used for steering, values below ADC1_CENTER mean left. ADC2 is used for speed control, values above ADC2_CENTER mean forward and below ADC2_CENTER mean backward.
+ADC Joystick control uses two ADCs on pins PA_2 and PA_3. ADC1 is used for steering, values below `ADC1_CENTER` mean left. ADC2 is used for speed control, values above `ADC2_CENTER` mean forward and below `ADC2_CENTER` mean backward.
+
 ---
 
 
