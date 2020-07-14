@@ -353,6 +353,30 @@ int main(void) {
       timeout = 0;
     #endif
 
+    #ifdef CONTROL_ADC_JOYSTICK
+      uint16_t adc_steer = adc_buffer.l_tx2;
+      uint16_t adc_speed = adc_buffer.l_rx2;
+
+      if((adc_steer > ADC1_CENTER - 150) && (adc_steer < ADC1_CENTER +150)) {
+        cmd1 = 0;
+      }
+      else {
+        cmd1 = (CLAMP(adc_steer - ADC1_MIN, 0, ADC1_MAX) - ADC1_CENTER) / (ADC1_CENTER / 1000.0f);
+      }
+      if ((adc_speed > ADC2_CENTER - 150) && (adc_speed < ADC2_CENTER + 150)) {
+        cmd2 = 0;
+      }
+      else {
+        cmd2 = (CLAMP(adc_speed - ADC2_MIN, 0, ADC2_MAX) - ADC2_CENTER) / (ADC2_CENTER / 1000.0f);
+      }
+
+      // use ADCs as button inputs:
+      button1 = (uint8_t)(adc_buffer.l_tx2 > 2000);  // ADC1
+      button2 = (uint8_t)(adc_buffer.l_rx2 > 2000);  // ADC2
+
+      timeout = 0;
+    #endif
+
     #ifdef CONTROL_SERIAL_USART2
       cmd1 = CLAMP((int16_t)command.steer, -1000, 1000);
       cmd2 = CLAMP((int16_t)command.speed, -1000, 1000);
