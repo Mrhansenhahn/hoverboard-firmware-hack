@@ -45,3 +45,8 @@ void Nunchuck_Read();
 void consoleScope();
 void consoleLog(char *message);
 void setScopeChannel(uint8_t ch, int16_t val);
+
+char* get_diagnostic_info();
+void set_steer(int v);
+void set_speed(int v);
+void poweroff();

@@ -44,9 +44,7 @@ void consoleScope() {
   #endif
 
   #if defined DEBUG_SERIAL_ASCII && (defined DEBUG_SERIAL_USART2 || defined DEBUG_SERIAL_USART3)
-    memset((void *)uart_buf, 0, sizeof(uart_buf));
-    sprintf((char *)uart_buf, "1:%i 2:%i 3:%i 4:%i 5:%i 6:%i 7:%i 8:%i\r\n", ch_buf[0], ch_buf[1], ch_buf[2], ch_buf[3], ch_buf[4], ch_buf[5], ch_buf[6], ch_buf[7]);
-    consoleLog((char *)uart_buf);
+    consoleLog(get_diagnostic_info());
   #endif
 }
 
@@ -62,3 +60,11 @@ void consoleLog(char *message)
   }
 }
 #endif // DEBUG_SERIAL_USART2
+
+char* get_diagnostic_info() {
+       memset((void*) uart_buf, 0, sizeof(uart_buf));
+       sprintf((char*) uart_buf, "1:%i 2:%i 3:%i 4:%i 5:%i 6:%i 7:%i 8:%i",
+                       ch_buf[0], ch_buf[1], ch_buf[2], ch_buf[3], ch_buf[4], ch_buf[5],
+                       ch_buf[6], ch_buf[7]);
+       return (char*) uart_buf;
+}

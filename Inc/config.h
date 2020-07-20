@@ -47,7 +47,7 @@
 // Quiet mode will, most of the time, flash the LED instead of using the
 // buzzer. However the buzzer will always be used when in a dangerous
 // situation like low battery or overheating.
-#define QUIET_MODE              0         // whether to flash LED instead of beeping
+//#define QUIET_MODE              0         // whether to flash LED instead of beeping
 
 #define INACTIVITY_TIMEOUT 8        // minutes of not driving until poweroff. it is not very precise.
 
@@ -67,6 +67,9 @@
 //#define CONTROL_MOTOR_TEST
 //#define CONTROL_DETECT_HALL
 
+#define CONTROL_UART
+#define CONTROL_UART_BAUD       19200    // control via uart from eg an Arduino or raspberry
+
 // ###### CONTROL VIA UART (serial) ######
 //#define CONTROL_SERIAL_USART2       // left sensor board cable, disable if ADC or PPM is used!
 //#define CONTROL_BAUD       19200    // control via usart from eg an Arduino or raspberry
@@ -85,13 +88,13 @@
 // ###### CONTROL VIA TWO POTENTIOMETERS ######
 // ADC-calibration to cover the full poti-range: connect potis to left sensor board cable (0 to 3.3V) (do NOT use the red 15V wire in the cable!). see <How to calibrate>. turn the potis to minimum position, write value 1 to ADC1_MIN and value 2 to ADC2_MIN. turn to maximum position and repeat it for ADC?_MAX. make, flash and test it.
 //#define CONTROL_ADC                 // use ADC as input. disable CONTROL_SERIAL_USART2!
-#define CONTROL_ADC_JOYSTICK
-#define ADC1_MIN 60		// min ADC1-value while poti at minimum-position (0 - 4095)
-#define ADC1_CENTER 2018
-#define ADC1_MAX 4095               // max ADC1-value while poti at maximum-position (0 - 4095)
-#define ADC2_MIN 60                // min ADC2-value while poti at minimum-position (0 - 4095)
-#define ADC2_CENTER 2018
-#define ADC2_MAX 4095               // max ADC2-value while poti at maximum-position (0 - 4095)
+//#define CONTROL_ADC_JOYSTICK
+//#define ADC1_MIN 60		// min ADC1-value while poti at minimum-position (0 - 4095)
+//#define ADC1_CENTER 2018
+//#define ADC1_MAX 4095               // max ADC1-value while poti at maximum-position (0 - 4095)
+//#define ADC2_MIN 60                // min ADC2-value while poti at minimum-position (0 - 4095)
+//#define ADC2_CENTER 2018
+//#define ADC2_MAX 4095               // max ADC2-value while poti at maximum-position (0 - 4095)
 
 // ###### CONTROL VIA NINTENDO NUNCHUCK ######
 // left sensor board cable. keep cable short, use shielded cable, use ferrits, stabalize voltage in nunchuck, use the right one of the 2 types of nunchucks, add i2c pullups. use original nunchuck. most clones does not work very well.

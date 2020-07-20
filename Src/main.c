@@ -24,6 +24,7 @@
 #include "setup.h"
 #include "config.h"
 #include "control.h"
+#include "uart.h"
 
 // ###############################################################################
 #include "BLDC_controller.h"            /* Model's header file */
@@ -247,7 +248,11 @@ int main(void) {
   #ifdef CONTROL_PPM
     PPM_Init();
   #endif
-
+  
+  #ifdef CONTROL_UART
+  uart_initialize();
+  #endif
+  
   #ifdef CONTROL_PWM
     PWM_Init();
   #endif
@@ -316,7 +321,7 @@ int main(void) {
 	  local_speed_coefficent = ppm_captured_value[3] / 500.0f;
 	  local_steer_coefficent = ppm_captured_value[4] / 1000.0f;
     #endif
-
+  
     #ifdef CONTROL_PWM
 
     if (PWM_Read()) {
@@ -383,6 +388,14 @@ int main(void) {
 
       timeout = 0;
     #endif
+
+#ifdef CONTROL_UART
+		uart_handle_command();
+
+		cmd1 = CLAMP((int16_t )command.steer, -1000, 1000);
+		cmd2 = CLAMP((int16_t )command.speed, -1000, 1000);
+		timeout = 0;
+#endif
 
     // ####### LOW-PASS FILTER #######
     #ifndef CONTROL_PWM
@@ -600,4 +613,11 @@ int main(void) {
 void SystemClock_Config(void) {
   SysTick_Config(SystemCoreClock / 1000); // tick every 1 millisecond
   NVIC_SetPriority(SysTick_IRQn, 0);
+}
+
+void set_steer(int v) {
+	command.steer = v;
+}
+void set_speed(int v) {
+	command.speed = v;
 }
