@@ -23,7 +23,6 @@
 #define UART_H_
 
 #include "config.h"
-#include "setup.h"
 
 #define 	USART_IT_PE   	USART_INT_PERR
 #define 	USART_IT_TXE   	USART_INT_TDE

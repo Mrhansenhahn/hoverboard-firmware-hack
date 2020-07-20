@@ -74,10 +74,10 @@ ADC Joystick control uses two ADCs on pins PA_2 and PA_3. ADC1 is used for steer
 ## Uart communication
 
 You can connect to your hoverboard using UART to pins L_TX (PA2), L_RX (PA3) and GND on the left sensor board via RaspberryPI or Arduino and use some simple commands:
-* ping (you should reveive "pong" as a response)
+* ping (you should receive "pong" as a response)
 * status (you should receive basic diagnostic info like speed of motors, battery status, and so on. Response format is like "1:0 2:0 3:54 4:54 5:1491 6:3815 7:1569 8:52")
 * test (makes both motors to turn really slow)
-* move <steer> <speed> (sets motor speed and steering)
+* move [steer] [speed] (sets motor speed and steering)
 * stop (stops both motors)
 * poweroff (shuts the hoverboard down)
 You should terminate commands with ';' or new line characters.
