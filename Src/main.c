@@ -621,3 +621,6 @@ void set_steer(int v) {
 void set_speed(int v) {
 	command.speed = v;
 }
+void update_timeout() {
+	timeout = 0;
+}

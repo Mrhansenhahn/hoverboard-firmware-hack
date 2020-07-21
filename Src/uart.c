@@ -86,10 +86,12 @@ void uart_handle_command() {
 		if (!strcmp(uart_command, "ping")) {
 			uart_put_string("pong" NL);
 		} else if (!strcmp(uart_command, "test")) {
+			update_timeout();
 			uart_put_string("starting motor test" NL);
 			set_steer(0);
 			set_speed(100);
 		} else if (startswith(uart_command, "move")) {
+			update_timeout();
 			int steer;
 			int speed;
 			sscanf(uart_command, "move %d %d", &steer, &speed);
@@ -99,13 +101,16 @@ void uart_handle_command() {
 			set_steer(steer);
 			set_speed(speed);
 		} else if (!strcmp(uart_command, "stop")) {
+			update_timeout();
 			uart_put_string("stopping motors" NL);
 			set_steer(0);
 			set_speed(0);
 		} else if (!strcmp(uart_command, "poweroff")) {
+			update_timeout();
 			uart_put_string("shutting down" NL);
 			poweroff();
 		} else if (!strcmp(uart_command, "status")) {
+			update_timeout();
 			uart_put_string(get_diagnostic_info());
 			uart_put_string(NL);
 		} else {
