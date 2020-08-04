@@ -38,7 +38,7 @@
 
 #define NL "\n\r"
 
-#define UART_RX_BUF_SIZE 32
+#define UART_RX_BUF_SIZE 512
 volatile char uart_rxBuff[UART_RX_BUF_SIZE];
 
 #define UART_TX_BUF_SIZE 512

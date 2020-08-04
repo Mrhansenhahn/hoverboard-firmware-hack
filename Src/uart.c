@@ -94,12 +94,18 @@ void uart_handle_command() {
 			update_timeout();
 			int steer;
 			int speed;
-			sscanf(uart_command, "move %d %d", &steer, &speed);
-			char out[128];
-			sprintf(out, "setting motors steer:%d speed:%d" NL, steer, speed);
-			uart_put_string(out);
-			set_steer(steer);
-			set_speed(speed);
+			int chksum;
+			sscanf(uart_command, "move %d %d %d", &steer, &speed, &chksum);
+			if (chksum == steer + (speed*1000)) {
+				char out[128];
+				sprintf(out, "setting motors steer:%d speed:%d" NL, steer,
+						speed);
+				uart_put_string(out);
+				set_steer(steer);
+				set_speed(speed);
+			} else {
+				uart_put_string("checksum error" NL);
+			}
 		} else if (!strcmp(uart_command, "stop")) {
 			update_timeout();
 			uart_put_string("stopping motors" NL);

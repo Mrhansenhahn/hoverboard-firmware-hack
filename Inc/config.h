@@ -68,7 +68,7 @@
 //#define CONTROL_DETECT_HALL
 
 #define CONTROL_UART
-#define CONTROL_UART_BAUD       19200    // control via uart from eg an Arduino or raspberry
+#define CONTROL_UART_BAUD       115200    // control via uart from eg an Arduino or raspberry
 
 // ###### CONTROL VIA UART (serial) ######
 //#define CONTROL_SERIAL_USART2       // left sensor board cable, disable if ADC or PPM is used!
