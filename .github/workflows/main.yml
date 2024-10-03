@@ -1,0 +1,20 @@
+name: Build Hoverboard Firmware
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt-get install make gcc-arm-none-eabi
+      - name: Build firmware
+        run: make
