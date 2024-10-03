@@ -17,9 +17,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/12.3-2022.06/arm-none-eabi-gcc-12.3-2022.06-x86_64-linux.tar.xz
-          tar -xvf arm-none-eabi-gcc-12.3-2022.06-x86_64-linux.tar.xz
-          sudo cp -r arm-none-eabi-gcc-12.3-2022.06/bin/* /usr/local/bin/
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi make
 
       - name: Build firmware
         run: make
