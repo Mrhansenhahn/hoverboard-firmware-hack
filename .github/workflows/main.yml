@@ -14,7 +14,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install dependencies
-        run: sudo apt-get install make gcc-arm-none-eabi-7
+        run: |
+          wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/arm-none-eabi-gcc-7-2018-q2-update-linux.tar.bz2
+          tar -xjf arm-none-eabi-gcc-7-2018-q2-update-linux.tar.bz2
+          sudo cp -r arm-none-eabi-gcc-7-2018-q2-update/bin/* /usr/local/bin/
+
       - name: Build firmware
         run: make
+
