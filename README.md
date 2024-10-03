@@ -10,7 +10,7 @@ The code was compiled with GNU arm-none-eabi-gcc 7.3.1 under windows and should 
 
 To build, clone this repository and run make:
 
-    git clone https://github.com/someone42/hoverboard-firmware-hack.git
+    git clone https://github.com/someone42/hoverboard-firmware-hack.git 
     make
 
 Only boards with the AT32F413RCT7 controller are supported. Use https://github.com/cloidnerux/hoverboard-firmware-hack if you need support for boards that use the AT32F403RCT6 or STM32F103 controller.
