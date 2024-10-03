@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Aktualisierte Version
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: |
-          wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/arm-none-eabi-gcc-7-2018-q2-update-linux.tar.bz2
-          tar -xjf arm-none-eabi-gcc-7-2018-q2-update-linux.tar.bz2
-          sudo cp -r arm-none-eabi-gcc-7-2018-q2-update/bin/* /usr/local/bin/
+          wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/12.3-2022.06/arm-none-eabi-gcc-12.3-2022.06-x86_64-linux.tar.xz
+          tar -xvf arm-none-eabi-gcc-12.3-2022.06-x86_64-linux.tar.xz
+          sudo cp -r arm-none-eabi-gcc-12.3-2022.06/bin/* /usr/local/bin/
 
       - name: Build firmware
         run: make
