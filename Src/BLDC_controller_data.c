@@ -94,7 +94,7 @@ const ConstP rtConstP = {
   { 0, 5, 3, 4, 1, 0, 2, 0 }
 };
 
-P rtP = {
+static P rtP = {
   /* Variable: cf_speedCoef
    * Referenced by: '<S16>/cf_spdCoef'
    */
