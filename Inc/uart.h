@@ -39,12 +39,12 @@
 #define NL "\n\r"
 
 #define UART_RX_BUF_SIZE 512
-volatile char uart_rxBuff[UART_RX_BUF_SIZE];
+extern volatile char uart_rxBuff[UART_RX_BUF_SIZE]; // Deklaration
 
 #define UART_TX_BUF_SIZE 512
-volatile char uart_txBuff[UART_TX_BUF_SIZE];
+extern volatile char uart_txBuff[UART_TX_BUF_SIZE]; // Deklaration
 
-char uart_command[UART_RX_BUF_SIZE];
+extern char uart_command[UART_RX_BUF_SIZE]; // Deklaration
 
 typedef struct {
 	volatile char *const buffer;
