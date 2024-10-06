@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Update auf die neueste Version
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: |
@@ -23,8 +23,11 @@ jobs:
       - name: Build firmware
         run: make
 
+      - name: List build directory
+        run: ls -R build
+
       - name: Upload ELF file
-  uses: actions/upload-artifact@v3
-  with:
-    name: hoverboard-firmware
-    path: build/hover.elf
+        uses: actions/upload-artifact@v3
+        with:
+          name: hoverboard-firmware
+          path: build/hover.elf
