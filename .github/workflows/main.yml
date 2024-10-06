@@ -22,3 +22,9 @@ jobs:
 
       - name: Build firmware
         run: make
+
+      - name: Upload ELF file
+        uses: actions/upload-artifact@v2
+        with:
+          name: hoverboard-firmware
+          path: ./output_file.elf  # Ersetze dies mit dem tatsächlichen Pfad zur ELF-Datei
