@@ -9,6 +9,11 @@ volatile circ_buffer_t uart_tx_circBuff = { uart_txBuff, 0, 0 };
 
 int8_t uart_command_ptr = 0;
 
+// Definitionen der Variablen
+volatile char uart_rxBuff[UART_RX_BUF_SIZE]; // Definition
+volatile char uart_txBuff[UART_TX_BUF_SIZE]; // Definition
+char uart_command[UART_RX_BUF_SIZE];          // Definition
+
 void uart_initialize() {
 	memset((void*) uart_command, 0, sizeof(uart_command));
 
@@ -74,10 +79,8 @@ void USART2_IRQHandler(void) {
 			if (uart_tx_circBuff.tail == UART_TX_BUF_SIZE)
 				uart_tx_circBuff.tail = 0;
 
-			USART_SendData(USART2,
-					uart_tx_circBuff.buffer[uart_tx_circBuff.tail]);
+			USART_SendData(USART2, uart_tx_circBuff.buffer[uart_tx_circBuff.tail]);
 		}
-
 	}
 }
 
