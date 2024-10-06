@@ -24,7 +24,7 @@ jobs:
         run: make
 
       - name: Upload ELF file
-        uses: actions/upload-artifact@v3  # Update auf die neueste Version
-        with:
-          name: hoverboard-firmware
-          path: ./output_file.elf  # Ersetze dies mit dem tatsächlichen Pfad zur ELF-Datei
+  uses: actions/upload-artifact@v3
+  with:
+    name: hoverboard-firmware
+    path: build/hover.elf
